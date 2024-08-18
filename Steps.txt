@@ -1,0 +1,70 @@
+Short Summary for [Part 1-  End to End Azure Data Engineering Project | Project Overview](https://www.youtube.com/watch?v=mECDWTYiKp4) by [Merlin](https://merlin.foyer.work/)
+
+This video explains a data engineering project using Azure technologies to build a complete end-to-end data project.
+
+[00:09](https://www.youtube.com/watch?v=mECDWTYiKp4&t=9) This video covers a complete end-to-end data engineering project using various Azure resources.
+
+[01:33](https://www.youtube.com/watch?v=mECDWTYiKp4&t=93) The project involves migrating an on-premise SQL Server database to the cloud using Azure Data Factory.
+
+[02:48](https://www.youtube.com/watch?v=mECDWTYiKp4&t=168) Azure Data Factory is used to connect to an on-premise SQL Server database and move tables to Azure Data Lake Gen 2. Azure Databricks is used to transform the data.
+
+[04:13](https://www.youtube.com/watch?v=mECDWTYiKp4&t=253) Azure Data Lake is divided into multiple layers: bronze, silver, and gold
+
+[05:34](https://www.youtube.com/watch?v=mECDWTYiKp4&t=334) Data transformation and cleaning process from bronze to gold layer using Azure tools
+
+[07:00](https://www.youtube.com/watch?v=mECDWTYiKp4&t=420) Data migration and analysis using Azure Synapse Analytics and Power BI
+
+[08:22](https://www.youtube.com/watch?v=mECDWTYiKp4&t=502) Use Azure Key Vault to safely store and retrieve secrets
+
+[09:47](https://www.youtube.com/watch?v=mECDWTYiKp4&t=587) This project is about creating a data engineering pipeline.
+
+---------------------------------
+
+Detailed Summary for [Part 1-  End to End Azure Data Engineering Project | Project Overview](https://www.youtube.com/watch?v=mECDWTYiKp4) by [Merlin](https://merlin.foyer.work/)
+
+This video explains a data engineering project using Azure technologies to build a complete end-to-end data project.
+
+This video covers a complete end-to-end data engineering project using various Azure resources.
+- Learn how to use different Azure resources like Issue Data Factory, Issue Synapse Analytics, Issue Data Bricks, Issue Data Lake, Azure Active Directory, Azure Key Vault, and Power BI.
+- The use case covered in this video is a popular one used by many companies for building data engineering projects.
+- Including this project in your resume can be really helpful for clearing data engineering interviews.
+
+The project involves migrating an on-premise SQL Server database to the cloud using Azure Data Factory.
+- The data source for the project is an on-premise SQL Server database.
+- The main reason for companies to move to the cloud is to migrate their traditional databases.
+- The project will involve migrating six or seven tables from the database.
+- The first step in the migration process is using Azure Data Factory.
+
+Azure Data Factory is used to connect to an on-premise SQL Server database and move tables to Azure Data Lake Gen 2. Azure Databricks is used to transform the data.
+- Azure Data Factory is an ETL tool mainly used for data ingestion.
+- Azure Data Lake Gen 2 is the storage solution in Azure.
+- Azure Databricks is a big data analytics tool used for high-end data analytics workloads.
+- Azure Databricks can be used to write code in SQL, PySpark, or Python.
+- Lake house architecture is an important concept covered in this project.
+
+ Azure Data Lake is divided into multiple layers: bronze, silver, and gold
+- Bronze layer is an exact copy of the data source and acts as the source of truth
+- In case of any issues in subsequent data transformations, you can refer back to the bronze layer
+- Data is then transformed in the bronze layer and loaded into the silver layer
+
+Data transformation and cleaning process from bronze to gold layer using Azure tools
+- In the bronze to silver layer, simple transformations like changing column names or data types can be done
+- Data Engineers are responsible for cleaning and curating raw data into the most curated form, using Azure Databricks and Lakehouse architecture
+- The final clean data is loaded into the gold layer using Azure Synapse Analytics
+
+Data migration and analysis using Azure Synapse Analytics and Power BI
+- Set up and load data into Azure Synapse Analytics, creating tables that mirror on-premise SQL database
+- Further analysis of stored data using Power BI to generate reports and charts
+- Incorporate security and governance tools such as Azure Active Directory for access management
+
+Use Azure Key Vault to safely store and retrieve secrets
+- Azure Key Vault can be used to store secrets like usernames and passwords
+- Data Engineers can retrieve this information for real-time projects
+- Using Azure Key Vault is the safest way to handle secret data
+
+This project is about creating a data engineering pipeline.
+- This pipeline retrieves the latest row from an on-premise SQL database and performs data transformation before loading it into another database.
+- The pipeline is designed to reflect the new row in a Power BI report.
+- The project covers different aspects of data sources, including their integration and building the pipeline.
+- The video is divided into multiple sections, including environment setup, data ingestion, data transformation, data loading, and data reporting.
+- The final part of the project is end-to-end testing of the pipeline.

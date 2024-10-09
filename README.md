@@ -1,7 +1,6 @@
 Project Overview –
  ![image](https://github.com/user-attachments/assets/f2599900-45c3-4b89-9c57-5f1b17c39a8a)
 
-
 Agenda-
 Part I: Environment setup 
 Part 2: Data Ingestion 
@@ -16,55 +15,41 @@ Azure Portal
 ![image](https://github.com/user-attachments/assets/3bfb886b-d6df-4f3b-b452-3193eec814d9)
 ![image](https://github.com/user-attachments/assets/92d22e54-d8b9-4ac4-aada-600fcdaef378)
 
- 
 ankantestsqlserver
 SQlserve creds-
-
-
 Alternate way to copy local SQL server data to Azure-
 https://www.youtube.com/watch?v=twJxzJI1K3w&t=2s&pp=ygUhY29ubmVjdCBsb2NhbCBzcWwgc2VydmVyIHRvIGF6dXJl
  
-
- ![image](https://github.com/user-attachments/assets/7a49ef08-5c5e-4ca3-adfd-fede144109e4)
-
+![image](https://github.com/user-attachments/assets/7a49ef08-5c5e-4ca3-adfd-fede144109e4)
 
 ![image](https://github.com/user-attachments/assets/4117e734-dc81-437b-a282-d383cf62fb2c)
 
  ![image](https://github.com/user-attachments/assets/7b08200d-4c39-4876-b3f2-b3f266520719)
 
- ![image](https://github.com/user-attachments/assets/a42acaf7-7eba-4a9a-9528-9a655e1d0c32)
-
+![image](https://github.com/user-attachments/assets/a42acaf7-7eba-4a9a-9528-9a655e1d0c32)
  
 ![image](https://github.com/user-attachments/assets/0c5acc9b-a39e-4e44-977b-19bce43fce31)
 
- ![image](https://github.com/user-attachments/assets/801710b4-4895-4073-9422-60ce4d06ae32)
+![image](https://github.com/user-attachments/assets/801710b4-4895-4073-9422-60ce4d06ae32)
 
- ![image](https://github.com/user-attachments/assets/9a6bf73d-0f37-4fe4-b5c9-5825d96f6a4b)
+![image](https://github.com/user-attachments/assets/9a6bf73d-0f37-4fe4-b5c9-5825d96f6a4b)
 
 ![image](https://github.com/user-attachments/assets/e6e575a9-c203-4d38-a92c-a1a75ab36e3b)
 
- ![image](https://github.com/user-attachments/assets/da1ca680-e1c0-441e-8bd9-468985617f6c)
+![image](https://github.com/user-attachments/assets/da1ca680-e1c0-441e-8bd9-468985617f6c)
 
- ![image](https://github.com/user-attachments/assets/56b92892-a370-4eca-a203-04e6b1d62686)
+![image](https://github.com/user-attachments/assets/56b92892-a370-4eca-a203-04e6b1d62686)
 
 ![image](https://github.com/user-attachments/assets/16d84f43-29fb-46c7-b13e-bf824fabb051)
 
 ![image](https://github.com/user-attachments/assets/ca547306-e69d-4a3b-b76a-7f1ae6216be7)
  
 
- 
-
- 
-
- 
-
- 
-
 Part 3- Data Ingestion
 
- ![image](https://github.com/user-attachments/assets/97b9d059-c95c-4674-b868-d87f9a0a5b60)
+![image](https://github.com/user-attachments/assets/97b9d059-c95c-4674-b868-d87f9a0a5b60)
 
- ![image](https://github.com/user-attachments/assets/c653d0ab-ee67-481c-b95c-faa484aff667)
+![image](https://github.com/user-attachments/assets/c653d0ab-ee67-481c-b95c-faa484aff667)
 
 ![image](https://github.com/user-attachments/assets/8e781ce5-a097-4d69-94c2-dc73d335effe)
 
@@ -83,12 +68,6 @@ Part 3- Data Ingestion
  ![image](https://github.com/user-attachments/assets/50a0ab46-7e72-4721-9212-4ad5eb00ec8b)
 
  ![image](https://github.com/user-attachments/assets/17c502c6-6765-479e-9789-5afd8327e30a)
-
-
- 
-
- 
-
 
 https://stackoverflow.com/questions/76325987/access-policies-not-available
  
@@ -112,24 +91,11 @@ https://stackoverflow.com/questions/76325987/access-policies-not-available
  ![image](https://github.com/user-attachments/assets/549972b4-c4b1-437e-b7b3-a9834c2435e8)
 
 
- 
-
-
-
- 
-
- 
- 
 
 Missing jvm.dll in self-hosted integration runtime Windows Container
 
 ![image](https://github.com/user-attachments/assets/f4f53996-4b41-47a7-8c6f-8efbd06c1329)
 ![image](https://github.com/user-attachments/assets/ad2ef4ce-a25c-442f-b667-4dcfc98af14c)
-
- 
- 
-
-
 
 Solution- 
 1.	reinstalled latest jave 23 ttps://download.oracle.com/java/23/latest/jdk-23_windows-x64_bin.exe (sha256)
@@ -147,13 +113,6 @@ Solution-
 ![image](https://github.com/user-attachments/assets/6fd02c43-fd33-4f6f-bd02-a1e1d0b2c51d)
 
 ![image](https://github.com/user-attachments/assets/035b4a61-740d-427c-bbf4-8deaab00a233)
-
-
-
-
- 
-
- 
 
 SELECT
 s. name AS SchemaName,
@@ -173,9 +132,6 @@ WHERE s. name in ('production', 'sales')
 
 ![image](https://github.com/user-attachments/assets/76c96758-6ef8-47be-a7d3-a8bb5dd0444d)
 
- 
-
-
 Folder Structure
 • bronze/Schema/Tablename/Tablename.parquet
 bronze/SalesT/Address/ Address.parquet
@@ -184,18 +140,9 @@ bronze/SalesT/Address/ Address.parquet
 
 ![image](https://github.com/user-attachments/assets/ca4a1464-57d0-4688-a70e-fdad066985df)
 
- 
-![image](https://github.com/user-attachments/assets/8abaea12-57d8-45e5-934f-84d1069a0eaa)
-
- 
+![image](https://github.com/user-attachments/assets/8abaea12-57d8-45e5-934f-84d1069a0eaa) 
 ![image](https://github.com/user-attachments/assets/efa4b30c-d98b-4e56-ab9d-654fe192039c)
-
 ![image](https://github.com/user-attachments/assets/ec2decd4-37ce-41f6-b7fe-41a17426aab2)
-
-
-
- 
- 
 
 Part 3 Data Transformations
 
@@ -207,26 +154,12 @@ Part 3 Data Transformations
 
 ![image](https://github.com/user-attachments/assets/1e868a48-f0e3-4597-9ad4-4c6f9fd04616)
 
-
  ![image](https://github.com/user-attachments/assets/5a90dc4e-3047-46cf-bb90-0cc2177fe816)
 
-
-
- 
-
-
- 
-
-
- 
-
-
 https://learn.microsoft.com/en-us/azure/databricks/archive/credential-passthrough/adls-passthrough#azure-data-lake-storage-gen2
- 
 
 ![image](https://github.com/user-attachments/assets/e3d524e7-9042-43df-a493-fd9163108761)
 
- 
 ![image](https://github.com/user-attachments/assets/6039705d-c452-4eb6-8eb8-05ea4fdb319d)
 
  ![image](https://github.com/user-attachments/assets/dee30f70-a1c9-44a2-b9bb-481722193316)
@@ -237,8 +170,6 @@ https://learn.microsoft.com/en-us/azure/databricks/archive/credential-passthroug
 
 ![image](https://github.com/user-attachments/assets/259cb2ad-cb7a-4f54-a206-ec2a9387b361)
 
- 
-
 Bronze to silver
  
 ![image](https://github.com/user-attachments/assets/0d0e8f77-e98d-436c-9a64-ed6d894a626b)
@@ -247,7 +178,6 @@ Bronze to silver
  
 ![image](https://github.com/user-attachments/assets/0d0d02e3-c677-46fa-9e38-7ca93a8e8de6)
  
-
 Silver to gold-
  
 ![image](https://github.com/user-attachments/assets/5663df49-36f9-4de4-90ab-287677eb8ef9)
@@ -269,61 +199,37 @@ Silver to gold-
 ![image](https://github.com/user-attachments/assets/e97a407e-ceca-43b8-9686-70158ff0b712)
 
 ![image](https://github.com/user-attachments/assets/78472c10-23ed-443e-b9e5-96f2983a4227)
- 
- 
- ![image](https://github.com/user-attachments/assets/b40511e3-761a-4f9b-a6b3-b2e137b48574)
+  
+![image](https://github.com/user-attachments/assets/b40511e3-761a-4f9b-a6b3-b2e137b48574)
 
+![image](https://github.com/user-attachments/assets/7c2d0d59-72da-4d3a-b9e5-cfe64e4e7261)
 
-
- ![image](https://github.com/user-attachments/assets/7c2d0d59-72da-4d3a-b9e5-cfe64e4e7261)
-
- 
 ![image](https://github.com/user-attachments/assets/60fb591d-11ad-4b9d-918e-10f95b3758f6)
 	 
- 
-
- 
-
 Silver to Gold-
  
- ![image](https://github.com/user-attachments/assets/dee85001-407a-4447-bca0-acb954cf733c)
+![image](https://github.com/user-attachments/assets/dee85001-407a-4447-bca0-acb954cf733c)
 
 ![image](https://github.com/user-attachments/assets/723daff8-c8c8-4c4f-9ce7-4b1250ed4f5b)
 
-
 ![image](https://github.com/user-attachments/assets/27b9b1fe-e227-46a9-9930-e49dbf38c496)
- 
- 
-
  ![image](https://github.com/user-attachments/assets/3b0c01dc-34ae-4dd3-8cad-8d4c44403e08)
 
- 
 ![image](https://github.com/user-attachments/assets/397018cf-cb05-45ad-afc7-6a0fd87585ab)
 
- ![image](https://github.com/user-attachments/assets/a903b0f3-cfda-46ad-8e84-6671386d8140)
+![image](https://github.com/user-attachments/assets/a903b0f3-cfda-46ad-8e84-6671386d8140)
 
- ![image](https://github.com/user-attachments/assets/6211de35-bb30-484d-ab63-2f2026242f4f)
-
-
- ![image](https://github.com/user-attachments/assets/8535a34b-f753-42fb-9297-62dcf0b5e2f7)
+![image](https://github.com/user-attachments/assets/6211de35-bb30-484d-ab63-2f2026242f4f)
+![image](https://github.com/user-attachments/assets/8535a34b-f753-42fb-9297-62dcf0b5e2f7)
 
 ![image](https://github.com/user-attachments/assets/07f98194-ab23-4ff8-9046-c882d71ab0e3)
-
-
-
-
-
 
 Part 7 – creating Pipeline
 ![image](https://github.com/user-attachments/assets/ac6f6a9c-b89e-4cf9-9cad-d3903b28a376)
 
- 
-
 Integration runtime as Autoresolve cause Databricks is cloud based
 ![image](https://github.com/user-attachments/assets/b6dce8e9-0f42-4278-a319-9ced837e5b5c)
  
-
-
 
 3rd Token- 
 ![image](https://github.com/user-attachments/assets/ca5d7745-e18a-47d4-bd54-f39cc45e4dc7)
@@ -337,50 +243,29 @@ Check how to enable interactive integration runtime to check test connection
 https://www.youtube.com/watch?v=lecyAa6Pv8I&t=168s
 
 ![image](https://github.com/user-attachments/assets/3da1df9a-9d15-4388-a647-67729f9fe3a1)
- 
 
 ![image](https://github.com/user-attachments/assets/4efdb644-ef41-43a7-b5ad-d29263bda0eb)
-
  
 ![image](https://github.com/user-attachments/assets/6aceb6ff-7379-4fbe-b73a-4b94db377622)
 
-
 ![image](https://github.com/user-attachments/assets/d1342d40-74a1-40ad-b787-7b8868509cb5)
 
- 
 ![image](https://github.com/user-attachments/assets/f55399cb-dc15-4c12-a7a4-f409ada1650f)
 
 ![image](https://github.com/user-attachments/assets/7d7369cd-c729-433b-b782-cd1ccd99c948)
 
  
 
-
- 
- 
-
-
- 
-
-
- 
-
- 
 Power of delta format
-
-
- 
 
 Part 8 - Data Loading (Azure Synapse Analytics)
 
 Azure synapse analytics = azure data factory(it is built on top of AZ DF) + azure data bricks + additional nalytics
 Dedicated costly datalake + compute , but serverless = only compute, as we already have data is already exist  in datlake, so servless will be most optimed
- 
 
 Link tab-
  
 
-
- 
 Connect to built-in sereverless
  
 
@@ -391,96 +276,43 @@ Create view for all the available tables inside the gold container
  
 Also need to create pipeline to create views for the tables to fetch tables
 Publish after execution
-
- 
-
-
- 
- 
-
-
- 
- 
- 
-
  
 This whole list of child items will be passed as input to the for each loop by setting below item config-
- 
- 
-
 
  Run instance-
  
  
-
-
-
 Part next- data Reporting
 Power BI
 
  
-
-
- 
-
-
-
- 
-
-
 Report Tab ,Data Tab and Model Tab
  
 
 Model Tab with tables replationship-
  
-
- 
-
 Use manage relation and create new relation so that any updates are in sync and reflected overall among all tables, chose the tables from drop dwon and select cardinality and cross filer direction to make reports more interactive
-
 
  
 Create dashboard-
- 
 
 Final Dashboard
- 
 
 Part 10 - Security and Governance (AAD)
 
 Initially only account of mine which is owner has access -
  
-
 So in order to provide access a security group so that all employee/developers/data engineers belonging to that group get access
- 
 
 If it is inaccessible, then you’re owner only, and need to contact your azure admin
 
- 
- 
-
- 
-
-	 
-
-
 Part end- End to End Pipeline Testing
-
- 
- 
-
 
 Make changes in the source- add 2 new rows in the table-
  
-
 Dashboard data values before trigger execution-
  
 After execution-
  
- 
-
-
-
-
 
 

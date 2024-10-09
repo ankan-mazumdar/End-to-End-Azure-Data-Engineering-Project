@@ -254,7 +254,7 @@ https://www.youtube.com/watch?v=lecyAa6Pv8I&t=168s
 
 ![image](https://github.com/user-attachments/assets/7d7369cd-c729-433b-b782-cd1ccd99c948)
 
- 
+https://github.com/ankan-mazumdar/End-to-End-Azure-Data-Engineering-Project/blob/7a94f413ee44abdb4abbec8e6db3a029ad8b6470/Assets/Picture1.png 
 
 Power of delta format
 

@@ -328,18 +328,19 @@ Model Tab with tables replationship-
 Use manage relation and create new relation so that any updates are in sync and reflected overall among all tables, chose the tables from drop dwon and select cardinality and cross filer direction to make reports more interactive
 ![image](https://github.com/ankan-mazumdar/End-to-End-Azure-Data-Engineering-Project/blob/main/Assets/Picture29.png)
 ![image](https://github.com/ankan-mazumdar/End-to-End-Azure-Data-Engineering-Project/blob/main/Assets/Picture30.png)
+![image](https://github.com/ankan-mazumdar/End-to-End-Azure-Data-Engineering-Project/blob/main/Assets/Picture31.png)
  
 Create dashboard-
 
-![image](https://github.com/ankan-mazumdar/End-to-End-Azure-Data-Engineering-Project/blob/main/Assets/Picture31.png)
+![image](https://github.com/ankan-mazumdar/End-to-End-Azure-Data-Engineering-Project/blob/main/Assets/Picture32.png)
 
 Final Dashboard
 
-![image](https://github.com/ankan-mazumdar/End-to-End-Azure-Data-Engineering-Project/blob/main/Assets/Picture32.png)
+![image](https://github.com/ankan-mazumdar/End-to-End-Azure-Data-Engineering-Project/blob/main/Assets/Picture33.png)
 
 Part 10 - Security and Governance (AAD)
 
-![image](https://github.com/ankan-mazumdar/End-to-End-Azure-Data-Engineering-Project/blob/main/Assets/Picture33.png)
+
 
 Initially only account of mine which is owner has access -
 

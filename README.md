@@ -469,7 +469,53 @@ https://learn.microsoft.com/en-us/azure/databricks/archive/credential-passthroug
 
 ![image](https://github.com/user-attachments/assets/07f98194-ab23-4ff8-9046-c882d71ab0e3)
 
-Part 7 – creating Pipeline
+
+
+### Part 7: Data Transformation (3) 
+
+1. **Notebook Preparation**:
+   - Updated notebooks to remove unnecessary code related to the address table.
+   - Ensure notebooks are ready for transformation tasks.
+
+2. **Azure Data Factory (ADF) Setup**:
+   - Log into Azure Data Factory.
+   - Access the existing pipeline that copies tables to the bronze container.
+
+3. **Create Linked Service Connection**:
+   - Go to the "Manage" tab in ADF.
+   - Create a new linked service for Azure Databricks.
+   - Fill in details:
+     - Select integration runtime (Auto-resolve).
+     - Specify subscription and Databricks workspace.
+     - Choose an existing interactive cluster.
+     - Use access token authentication.
+
+4. **Generate Access Token**:
+   - In Databricks, go to "User Settings" → "Access Tokens".
+   - Generate a new token (name it "ADF").
+   - Copy the token and store it in Azure Key Vault as a new secret (e.g., "databricks_workspace_token").
+
+5. **Configure ADF Linked Service**:
+   - In ADF, configure the linked service to use the token from Azure Key Vault.
+   - Test the connection to ensure it is successful.
+
+6. **Pipeline Development**:
+   - In the ADF "Author" tab, create notebook activities:
+     - Add a "Notebook Activity" for **Bronze to Silver** transformation.
+     - Configure it to run after the initial copy activity.
+     - Specify the notebook path in Databricks.
+     - Add another "Notebook Activity" for **Silver to Gold** transformation, linking it to the previous activity.
+
+7. **Publish Pipeline**:
+   - Save all changes and publish the pipeline.
+
+8. **Trigger and Monitor**:
+   - Trigger the pipeline to run.
+   - Monitor the execution and confirm data is processed and stored in the respective containers.
+
+9. **Next Steps**:
+   - Prepare to load the final transformed data from the gold container into a database using Azure Synapse Analytics in the next part.
+
 
 ![image](https://github.com/user-attachments/assets/ac6f6a9c-b89e-4cf9-9cad-d3903b28a376)
 
@@ -508,10 +554,50 @@ https://www.youtube.com/watch?v=lecyAa6Pv8I&t=168s
 Power of delta format
 ![image](https://github.com/ankan-mazumdar/End-to-End-Azure-Data-Engineering-Project/blob/main/Assets/Picture4.png)
 
-Part 8 - Data Loading (Azure Synapse Analytics)
+
+
+
+### Part 8: Data Loading (Azure Synapse Analytics) - Brief
 
 Azure synapse analytics = azure data factory(it is built on top of AZ DF) + azure data bricks + additional nalytics
 Dedicated costly datalake + compute , but serverless = only compute, as we already have data is already exist  in datlake, so servless will be most optimed
+
+1. **Introduction to Azure Synapse Analytics**:
+   - Utilize Azure Synapse Analytics for data loading processes.
+   - Familiarize with layout and functionalities similar to Azure Data Factory.
+
+2. **Database and SQL Scripts Creation**:
+   - Navigate to the Data tab to create databases.
+   - Use the Develop tab to create SQL scripts/notebooks for data transformation.
+
+3. **Set Up Serverless SQL Database**:
+   - Create a serverless SQL database named `gold_DB`.
+   - Establish a direct connection to Azure Data Lake to query data from the gold container.
+
+4. **Query Data from Data Lake**:
+   - Generate T-SQL commands to query data from the data lake location.
+   - Benefit from low storage costs when using serverless SQL databases.
+
+5. **Create Stored Procedures**:
+   - Develop stored procedures to dynamically create views for all tables in the gold container.
+   - Import the script for the stored procedure from the Develop tab.
+
+6. **Linked Service Connection**:
+   - Create a linked service connection for the serverless SQL database.
+   - Configure integration runtime and account details; test the connection for success.
+
+7. **Get Metadata Activity**:
+   - Utilize the Get Metadata activity to fetch table names from the sales folder in the gold container.
+   - Implement a For Each activity to iterate through the list of table names for dynamic view creation.
+
+8. **Configure Stored Procedure Activity**:
+   - Set parameters in the stored procedure activity settings.
+   - Specify parameter names and data types, using dynamic content for values.
+
+9. **Automatic Data View Updates**:
+   - Ensure views for all tables in the gold container are created in the serverless SQL database.
+   - Prepare for the next step: connect Power BI to the serverless SQL database to create reports.
+
 
 ![image](https://github.com/ankan-mazumdar/End-to-End-Azure-Data-Engineering-Project/blob/main/Assets/Picture5.png)
 

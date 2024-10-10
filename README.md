@@ -33,10 +33,6 @@ In this section, we set up the Azure environment, configuring essential resource
 ![image](https://github.com/user-attachments/assets/92d22e54-d8b9-4ac4-aada-600fcdaef378)
 
 
-
-Alternate way to copy local SQL server data to Azure, here is the youtube link-
-https://www.youtube.com/watch?v=twJxzJI1K3w&t=2s&pp=ygUhY29ubmVjdCBsb2NhbCBzcWwgc2VydmVyIHRvIGF6dXJl
-
 1. **Azure Portal Access**
    - Log in to the [Azure Portal](https://portal.azure.com) with your credentials. Ensure you have permissions to create and manage resources.
    - If you don't have an account, you can [sign up here](https://azure.microsoft.com/free/).
@@ -60,7 +56,9 @@ https://www.youtube.com/watch?v=twJxzJI1K3w&t=2s&pp=ygUhY29ubmVjdCBsb2NhbCBzcWwg
 ---
 
 
- 
+ Alternate way to copy local SQL server data to Azure,and the is the youtube demo for the same-
+https://www.youtube.com/watch?v=twJxzJI1K3w&t=2s&pp=ygUhY29ubmVjdCBsb2NhbCBzcWwgc2VydmVyIHRvIGF6dXJl
+
 ![image](https://github.com/user-attachments/assets/7a49ef08-5c5e-4ca3-adfd-fede144109e4)
 
 ![image](https://github.com/user-attachments/assets/4117e734-dc81-437b-a282-d383cf62fb2c)
@@ -76,6 +74,10 @@ https://www.youtube.com/watch?v=twJxzJI1K3w&t=2s&pp=ygUhY29ubmVjdCBsb2NhbCBzcWwg
 ![image](https://github.com/user-attachments/assets/9a6bf73d-0f37-4fe4-b5c9-5825d96f6a4b)
 
 ![image](https://github.com/user-attachments/assets/e6e575a9-c203-4d38-a92c-a1a75ab36e3b)
+
+
+
+
 
 ![image](https://github.com/user-attachments/assets/da1ca680-e1c0-441e-8bd9-468985617f6c)
 

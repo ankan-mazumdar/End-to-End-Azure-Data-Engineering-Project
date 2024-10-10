@@ -226,6 +226,70 @@ https://stackoverflow.com/questions/76325987/access-policies-not-available
 
 ![image](https://github.com/user-attachments/assets/41873a83-5649-4004-be17-4cf5ba99f6f6)
 
+Here’s a transcript of Part 4 - Data Ingestion (2) of your Azure Data Engineering project:
+
+---
+
+**Part 4 - Data Ingestion (2) Pipeline to Copy all tables into Bronze container**
+
+### Data Ingestion Process
+
+1. **Creating the Pipeline**: 
+   - Navigate to the **Author** tab and click on **Pipelines**.
+   - Create a new pipeline by clicking the plus icon and selecting **Pipeline**.
+   - Name the pipeline "Copy Pipeline."
+
+2. **Copy Data Activity**:
+   - Search for "Copy Data Activity" and drag it into the white space.
+   - Rename it to "Copy Address Table."
+
+3. **Setting Up Source**:
+   - Click on **Source** to create a source dataset for the address table.
+   - Click the **New** button and select **SQL Server** as the data store.
+   - Name the dataset "Address."
+   - Create a link service for the SQL Server database, providing the name "On-Prem SQL Server."
+
+4. **Link Service Configuration**:
+   - Select the self-hosted integration runtime "Shir."
+   - Enter the server name as "localhost" (checked via SQL Server Management Studio).
+   - Enter the database name.
+   - For authentication, select SQL and enter the username. Use Azure Key Vault for the password.
+
+5. **Creating Key Vault Link Service**:
+   - Create a new link service for Azure Key Vault, selecting the relevant subscription and key vault.
+   - Use system-assigned managed identity for authentication.
+   - Test the connection, which should succeed.
+
+6. **Access Policies for Key Vault**:
+   - Navigate to the key vault and select **Access Policies** to give Azure Data Factory permission to read secrets.
+   - Create a new access policy allowing secret permissions and associate it with Azure Data Factory's managed identity.
+
+7. **Testing Key Vault Access**:
+   - Refresh the Azure Data Factory and check if the secrets are now accessible.
+
+8. **Completing Link Service Setup**: 
+   - After successfully configuring the link service, select the address table from the SQL Server.
+   - Preview the data to ensure correct setup.
+
+9. **Configuring Sync**: 
+   - Create a new sync dataset for Azure Data Lake Storage Gen2.
+   - Select the Parquet format for storing data.
+
+10. **Link Service for Data Lake**:
+    - Configure a new link service for Azure Data Lake, selecting the appropriate subscription and storage account.
+    - Test the connection, which should also succeed.
+
+11. **File Location**: 
+    - Specify the file path in the Azure Data Lake (e.g., "bronze" container).
+
+12. **Running the Pipeline**:
+    - Run the pipeline using the debug option to test the copying process.
+    - After successful execution, check the Azure Data Lake’s "bronze" container for the copied file (e.g., `salesLT.address.parquet`).
+
+---
+
+Feel free to let me know if you need any adjustments or further details!
+
 ![image](https://github.com/user-attachments/assets/6fd02c43-fd33-4f6f-bd02-a1e1d0b2c51d)
 
 ![image](https://github.com/user-attachments/assets/035b4a61-740d-427c-bbf4-8deaab00a233)
@@ -260,21 +324,68 @@ bronze/SalesT/Address/ Address.parquet
 ![image](https://github.com/user-attachments/assets/efa4b30c-d98b-4e56-ab9d-654fe192039c)
 ![image](https://github.com/user-attachments/assets/ec2decd4-37ce-41f6-b7fe-41a17426aab2)
 
-## **Part 4: Data Transformation**
 
-Next, we transform the data stored in the **bronze** layer using Azure Databricks.
+### Part 5 - Data Transformation (1): Mounting the Data Lake
 
-1. **Setting Up Azure Databricks**
-   - Create an Azure Databricks workspace and set up a cluster.
-   - Install libraries like `azure-data-lake-gen2` and `pyspark`.
+**Introduction to Databricks:**
+- We are inside the Azure Resource Group, ready to use Azure Databricks for data transformation.
+- Click on Databricks, then click "Launch Workspace" to access the Databricks workspace.
 
-2. **Transforming Data in the Bronze Layer**
-   - Write code in a Databricks notebook to transform data (e.g., rename columns, clean null values) and save it to the **silver** layer.
+**Overview of the Workspace:**
+- The workspace has various tabs:
+  - **Workspace Tab**: Used to create notebooks for writing transformation logic.
+  - **Repo Tab**: Integrates with Git for version control.
+  - **Recent Tab**: Shows recently accessed notebooks.
+  - **Data Tab**: Allows creation of databases and tables.
+  - **Compute Tab**: Essential for data transformation; we will create a Spark cluster here.
+  - **Workflow Tab**: Used to create jobs from notebooks, but we will trigger notebooks using Azure Data Factory instead.
 
-3. **Storing Data in the Silver Layer**
-   - Save the cleaned data in Parquet format, optimizing storage for future processing.
+**Creating a Compute Cluster:**
+- The compute tab is crucial for creating a Spark cluster to perform transformations.
+- Click on "Create Compute" in the top left to start creating the cluster.
+- Configure the cluster:
+  - Name: Change to a meaningful name, e.g., `Data_Transformation`.
+  - Policy: Select the unrestricted option.
+  - Node Type: Choose between single or multi-node; select single node for minimal operations.
+  - Access Mode: Set to single user since only one user will be using the cluster.
+  - Databricks Runtime Version: Choose the default standard option.
+  - Node Type: Select the smallest node type, e.g., 4-core CPU.
+  - Termination: Set to terminate after 15 minutes of inactivity to save costs.
+  - Advanced Options: Enable "Credential Passthrough for User-Level Data Access" for accessing the Data Lake.
 
----
+**Understanding Credential Passthrough:**
+- This option allows Databricks to access the Data Lake using the credentials of the logged-in user.
+- Role assignments must be set in Azure Data Lake, allowing users (with Blob Storage Data Contributor role) to interact with it.
+- Since Databricks currently cannot be assigned Blob Storage permissions directly, enabling this option is crucial.
+
+**Creating the Cluster:**
+- After configuring, click "Create Cluster." It takes about five minutes to set up.
+
+**Mounting the Data Lake:**
+- To mount the Data Lake, we need to copy the necessary Python code from the Microsoft documentation.
+- Update the code with:
+  - Container name: Change `store` to `bronze`.
+  - Storage account name: Replace with ``.
+  - Mount point name: Use the container name `bronze`.
+
+**Running the Mount Code:**
+- After making changes, run the code to mount the `bronze` container.
+- Check if the cluster is attached and run the cell.
+- The output should be `true`, indicating successful mounting.
+
+**Accessing Data:**
+- Use `dbutils.fs.ls` to list data within the `bronze` container.
+- Navigate to the Data Lake to verify the presence of the `sales` folder.
+- Modify the code to access specific folders within the `bronze` container.
+
+**Mounting Other Containers:**
+- Repeat the mounting process for the `silver` and `gold` containers.
+- Although the `silver` container might be empty initially, it’s good to mount it from the start.
+
+**Conclusion of Part 5:**
+- Now all three containers are mounted: `bronze`, `silver`, and `gold`.
+- We can now read data from the `bronze` container, perform transformations, and write the transformed data to the `silver` container.
+
 
 ![image](https://github.com/user-attachments/assets/59d44c4c-929f-4993-bbce-162e754a20fd)
 

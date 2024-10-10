@@ -605,13 +605,16 @@ Link tab-
 
 ![image](https://github.com/ankan-mazumdar/End-to-End-Azure-Data-Engineering-Project/blob/main/Assets/Picture6.png) 
 ![image](https://github.com/ankan-mazumdar/End-to-End-Azure-Data-Engineering-Project/blob/main/Assets/Picture7.png)
-Connect to built-in sereverless
 
-![image](https://github.com/ankan-mazumdar/End-to-End-Azure-Data-Engineering-Project/blob/main/Assets/Picture8.png) 
+**Connect to built-in sereverless**
 
-Create view-
+![image](https://github.com/user-attachments/assets/413ffd81-79ad-4cbf-9186-7d4a1c2ad418)
 
-![image](https://github.com/ankan-mazumdar/End-to-End-Azure-Data-Engineering-Project/blob/main/Assets/Picture9.png) 
+
+**Create view-**
+
+![image](https://github.com/user-attachments/assets/b20b541b-6db8-47ef-a82c-334329e4a2df)
+
 
 iF any data modification happen in the main table, it going to be automatically reflected in the view as each time view executes the sql for the table
 Create view for all the available tables inside the gold container

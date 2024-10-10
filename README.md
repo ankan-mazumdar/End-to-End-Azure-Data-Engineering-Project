@@ -77,8 +77,8 @@ https://www.youtube.com/watch?v=twJxzJI1K3w&t=2s&pp=ygUhY29ubmVjdCBsb2NhbCBzcWwg
 
 
 
-Original way-
-Create your login username and passwrd for the connection and provide necessary permission through IAMadmin-
+### **Original way-**
+ **Create your login username and passwrd for the connection and provide necessary permission through IAMadmin- **
 
 ![image](https://github.com/user-attachments/assets/da1ca680-e1c0-441e-8bd9-468985617f6c)
 
@@ -89,7 +89,7 @@ Create your login username and passwrd for the connection and provide necessary 
 ![image](https://github.com/user-attachments/assets/ca547306-e69d-4a3b-b76a-7f1ae6216be7)
  
 
-Part 3- Data Ingestion
+## **Part 3- Data Ingestion**
 
 ![image](https://github.com/user-attachments/assets/97b9d059-c95c-4674-b868-d87f9a0a5b60)
 
@@ -136,12 +136,12 @@ https://stackoverflow.com/questions/76325987/access-policies-not-available
 
 
 
-Missing jvm.dll in self-hosted integration runtime Windows Container
+## ***Missing jvm.dll in self-hosted integration runtime Windows Container***
 
 ![image](https://github.com/user-attachments/assets/f4f53996-4b41-47a7-8c6f-8efbd06c1329)
 ![image](https://github.com/user-attachments/assets/ad2ef4ce-a25c-442f-b667-4dcfc98af14c)
 
-Solution- 
+**Solution-** 
 1.	reinstalled latest jave 23 ttps://download.oracle.com/java/23/latest/jdk-23_windows-x64_bin.exe (sha256)
 2.	set system and environment variables for JAVA_HOME and path and checked java -version
 3.	created all this in regedit

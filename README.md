@@ -77,7 +77,7 @@ https://www.youtube.com/watch?v=twJxzJI1K3w&t=2s&pp=ygUhY29ubmVjdCBsb2NhbCBzcWwg
 
 
 
-### **Original way-**
+## **Part 2: SQL Server user credential creation and storing them in Key vault and with required accesses**
  **Create your login username and passwrd for the connection and provide necessary permission through IAMadmin- **
 
 ![image](https://github.com/user-attachments/assets/da1ca680-e1c0-441e-8bd9-468985617f6c)
@@ -89,7 +89,79 @@ https://www.youtube.com/watch?v=twJxzJI1K3w&t=2s&pp=ygUhY29ubmVjdCBsb2NhbCBzcWwg
 ![image](https://github.com/user-attachments/assets/ca547306-e69d-4a3b-b76a-7f1ae6216be7)
  
 
-## **Part 3- Data Ingestion**
+### Part 3 - Data Ingestion (1)
+
+In this section, we'll walk through the process of ingesting data using Azure Data Factory (ADF). 
+
+#### Step 1: Accessing Azure Data Factory
+
+1. **Navigate to Azure Data Factory**:
+   - Open your Azure portal, locate your resource group, and select Azure Data Factory.
+   - Click on **Launch Studio** to enter the Azure Data Factory workspace.
+
+#### Step 2: Integration Runtime Setup
+
+1. **Integration Runtime Overview**:
+   - Azure Data Factory cannot directly connect to on-premise SQL Server databases. 
+   - To establish this connection, you need to set up an **Integration Runtime (IR)**, specifically a **Self-Hosted Integration Runtime (SHIR)**.
+
+2. **Installing the Self-Hosted Integration Runtime (SHIR)**:
+   - In the Azure Data Factory workspace, click on **Manage** in the left panel and select **Integration Runtimes**.
+   - You’ll see an **Auto-Resolve Integration Runtime** (used for cloud-based resources). To connect to an on-premise database, you must create a new SHIR.
+   - Click on **New**, select **Self-Hosted**, and click **Continue**.
+   - Name the runtime (e.g., `SHIR`), add a description, and click **Create**.
+   - Choose the **Express Setup** to automatically download and set up the runtime on your local machine.
+
+3. **Testing the Integration Runtime Connection**:
+   - Verify that the SHIR is installed and running by typing **Microsoft Integration Runtime** in the search bar of your local system.
+   - The SHIR should show as connected to the Azure cloud service with the correct Data Factory name.
+
+#### Step 3: Creating a Pipeline
+
+1. **Creating a New Pipeline**:
+   - Go to the **Author** tab in ADF and click on **Pipelines**. 
+   - Create a new pipeline by clicking the **+** icon and selecting **Pipeline**.
+   - Name the pipeline (e.g., `CopyPipeline`).
+
+2. **Adding a Copy Data Activity**:
+   - Drag the **Copy Data** activity onto the pipeline workspace.
+   - Rename it appropriately (e.g., `Copy Address Table`).
+
+3. **Configuring the Source Dataset**:
+   - Click on **Source** and create a new dataset.
+   - Select **SQL Server** as the data store type, name it (`Address`), and create a linked service for the connection.
+   - In the linked service setup:
+     - Select the SHIR created earlier (`SHIR`).
+     - Provide the **Server Name** (`localhost`) and **Database Name** (e.g., `MyDatabase`).
+     - For authentication, use **SQL Authentication** and retrieve the password securely from Azure Key Vault.
+
+#### Step 4: Configuring Access Permissions for Key Vault
+
+1. **Granting Access**:
+   - In your Azure Key Vault, navigate to **Access Policies** and create a new access policy.
+   - Assign **Secret** permissions to your Azure Data Factory's managed identity.
+   - Select the ADF managed identity as the principal and save the changes.
+
+2. **Testing the Connection**:
+   - Return to ADF, refresh the secret dropdown in the linked service configuration, and select the secret containing your SQL Server password.
+   - Test and verify that the connection is successful.
+
+#### Step 5: Configuring the Sink Dataset
+
+1. **Setting Up the Sink Dataset**:
+   - In the **Sync** tab of the pipeline, create a new dataset for **Azure Data Lake Storage Gen2**.
+   - Choose **Parquet** as the file format for efficient columnar storage.
+   - Create a linked service for Azure Data Lake, using **Auto-Resolve Integration Runtime** (since it is a cloud-based resource).
+   - Select the appropriate subscription and storage account , and test the connection.
+
+2. **Setting the File Path**:
+   - Browse and select the **bronze** container in the data lake for storing ingested files.
+
+#### Step 6: Running the Pipeline
+
+1. **Debugging and Testing**:
+   - With both the source and sink configured, you can run the pipeline using the **Debug** option.
+   - Monitor the pipeline’s progress and verify that the data from the on-premise SQL Server is copied to the bronze layer in the Azure Data Lake.
 
 ![image](https://github.com/user-attachments/assets/97b9d059-c95c-4674-b868-d87f9a0a5b60)
 
@@ -188,7 +260,21 @@ bronze/SalesT/Address/ Address.parquet
 ![image](https://github.com/user-attachments/assets/efa4b30c-d98b-4e56-ab9d-654fe192039c)
 ![image](https://github.com/user-attachments/assets/ec2decd4-37ce-41f6-b7fe-41a17426aab2)
 
-Part 3 Data Transformations
+## **Part 4: Data Transformation**
+
+Next, we transform the data stored in the **bronze** layer using Azure Databricks.
+
+1. **Setting Up Azure Databricks**
+   - Create an Azure Databricks workspace and set up a cluster.
+   - Install libraries like `azure-data-lake-gen2` and `pyspark`.
+
+2. **Transforming Data in the Bronze Layer**
+   - Write code in a Databricks notebook to transform data (e.g., rename columns, clean null values) and save it to the **silver** layer.
+
+3. **Storing Data in the Silver Layer**
+   - Save the cleaned data in Parquet format, optimizing storage for future processing.
+
+---
 
 ![image](https://github.com/user-attachments/assets/59d44c4c-929f-4993-bbce-162e754a20fd)
 
@@ -200,6 +286,8 @@ Part 3 Data Transformations
 
  ![image](https://github.com/user-attachments/assets/5a90dc4e-3047-46cf-bb90-0cc2177fe816)
 
+** Setting Up Azure Databricksc Microsoft doc-**
+---
 https://learn.microsoft.com/en-us/azure/databricks/archive/credential-passthrough/adls-passthrough#azure-data-lake-storage-gen2
 
 ![image](https://github.com/user-attachments/assets/e3d524e7-9042-43df-a493-fd9163108761)
@@ -214,7 +302,9 @@ https://learn.microsoft.com/en-us/azure/databricks/archive/credential-passthroug
 
 ![image](https://github.com/user-attachments/assets/259cb2ad-cb7a-4f54-a206-ec2a9387b361)
 
-Bronze to silver
+---
+
+**Bronze to silver**
  
 ![image](https://github.com/user-attachments/assets/0d0e8f77-e98d-436c-9a64-ed6d894a626b)
 
@@ -222,7 +312,7 @@ Bronze to silver
  
 ![image](https://github.com/user-attachments/assets/0d0d02e3-c677-46fa-9e38-7ca93a8e8de6)
  
-Silver to gold-
+**Silver to gold-**
  
 ![image](https://github.com/user-attachments/assets/5663df49-36f9-4de4-90ab-287677eb8ef9)
 
@@ -250,7 +340,7 @@ Silver to gold-
 
 ![image](https://github.com/user-attachments/assets/60fb591d-11ad-4b9d-918e-10f95b3758f6)
 	 
-Silver to Gold-
+**Silver to Gold-**
  
 ![image](https://github.com/user-attachments/assets/dee85001-407a-4447-bca0-acb954cf733c)
 
@@ -353,8 +443,37 @@ This whole list of child items will be passed as input to the for each loop by s
  ![image](https://github.com/ankan-mazumdar/End-to-End-Azure-Data-Engineering-Project/blob/main/Assets/Picture21.png)
  ![image](https://github.com/ankan-mazumdar/End-to-End-Azure-Data-Engineering-Project/blob/main/Assets/Picture22.png)
  
-Part next- data Reporting
-Power BI
+### Data Reporting (Power BI) - Step-by-Step Implementation
+
+This covers the basics for creating and publishing a report using Power BI for the Azure Data Engineering project.
+
+1. **Set Up Data Connection**: 
+   - Open Power BI Desktop.
+   - Connect to your data source, e.g., Azure SQL Database or Azure Data Lake Storage.
+   
+2. **Create a Data Model**: 
+   - Load tables and establish relationships between them if necessary.
+   - Perform data transformations using Power Query Editor.
+
+3. **Design Visuals**: 
+   - Add visuals like charts, tables, and maps to visualize key metrics.
+   - Use slicers for interactivity.
+
+4. **Create a Dashboard**:
+   - Arrange the visuals to form an interactive dashboard layout.
+   - Customize the appearance to enhance clarity and aesthetics.
+
+5. **Set Up Filters and Drill-Downs**:
+   - Implement filters and drill-down features for detailed analysis.
+   - Ensure proper interactivity between visuals.
+
+6. **Publish to Power BI Service**:
+   - Save and publish the report to Power BI Service.
+   - Configure data refresh settings to keep the dashboard up-to-date.
+
+7. **Share Reports**:
+   - Share the dashboard with stakeholders by providing access through Power BI Service.
+
 
 ![image](https://github.com/ankan-mazumdar/End-to-End-Azure-Data-Engineering-Project/blob/main/Assets/Picture23.png)
 ![image](https://github.com/ankan-mazumdar/End-to-End-Azure-Data-Engineering-Project/blob/main/Assets/Picture24.png)
@@ -382,7 +501,51 @@ Final Dashboard
 
 ![image](https://github.com/ankan-mazumdar/End-to-End-Azure-Data-Engineering-Project/blob/main/Assets/Picture33.png)
 
-Part 10 - Security and Governance (AAD)
+---
+
+### Part 10 - Security and Governance (AAD)
+
+In this section, we cover the implementation of security and governance features using Azure Active Directory (AAD). This is a crucial step in setting up access management for the project, ensuring that resources are securely managed and controlled.
+
+#### 1. **Overview of Security and Governance**
+   - We previously gone through the use of Azure Key Vault for storing secrets and configuring Azure Data Factory to access these secrets securely.
+   - In this section, we will explore how to set up Azure Active Directory (AAD) security groups to manage user permissions efficiently.
+
+#### 2. **Setting Up a Security Group in Azure Active Directory**
+   - Access the Azure portal and navigate to **Azure Active Directory**.
+   - Go to the **Groups** section to create a new security group that will manage the permissions for the resources used in this project.
+
+#### 3. **Creating a Security Group**
+   - Click on the **New Group** button.
+   - Choose **Security** as the group type.
+   - Enter a suitable name for the group, such as `Data Engineering Team`.
+   - Skip the optional description and proceed to the owner assignment.
+
+#### 4. **Assigning Owners to the Group**
+   - Add an owner to the security group. This owner will have management rights to add or remove users and manage the group’s settings.
+   - For example, the project lead or a senior data engineer can be assigned as the group owner.
+
+#### 5. **Adding Members to the Group**
+   - Add all relevant team members who need access to the resources under this resource group. By managing team members through this security group, we simplify permission management.
+   - When a new team member joins, they can simply be added to the security group, automatically inheriting all the necessary permissions.
+
+#### 6. **Assigning Permissions to the Security Group**
+   - Navigate to the target **Resource Group** (e.g., `RG_Data_Engineering_Project`).
+   - Go to **Access Control (IAM)** and click **Add** -> **Add Role Assignment**.
+   - Choose the appropriate role, such as **Contributor**, and assign it to the security group created (`Data Engineering Team`).
+
+#### 7. **Testing the Security Group Configuration**
+   - Verify that members of the security group can access and manage the resources in the Resource Group.
+   - For example, logging in as a member of the security group should show access to the Resource Group and its associated resources.
+
+#### 8. **Best Practices for Security Management**
+   - Always manage access through security groups rather than individual accounts to maintain efficient and scalable user management.
+   - Regularly review and update security groups to ensure that permissions align with the current project requirements.
+
+By implementing security and governance using Azure Active Directory, we ensure that access management for the project is both secure and efficient, allowing for easy scalability and control.
+
+--- 
+
 
 
 
@@ -390,11 +553,11 @@ Initially only account of mine which is owner has access -
 
  ![image](https://github.com/ankan-mazumdar/End-to-End-Azure-Data-Engineering-Project/blob/main/Assets/Picture34.png)
  
-So in order to provide access a security group so that all employee/developers/data engineers belonging to that group get access
+**So in order to provide access a security group so that all employee/developers/data engineers belonging to that group get access**
 
 ![image](https://github.com/ankan-mazumdar/End-to-End-Azure-Data-Engineering-Project/blob/main/Assets/Picture35.png)
 
-If it is inaccessible, then you’re owner only, and need to contact your azure admin
+**If it is inaccessible, then you’re owner only, and need to contact your azure admin**
 
 ![image](https://github.com/ankan-mazumdar/End-to-End-Azure-Data-Engineering-Project/blob/main/Assets/Picture36.png)
 
@@ -403,7 +566,55 @@ If it is inaccessible, then you’re owner only, and need to contact your azure 
 ![image](https://github.com/ankan-mazumdar/End-to-End-Azure-Data-Engineering-Project/blob/main/Assets/Picture38.png)
 
 ![image](https://github.com/ankan-mazumdar/End-to-End-Azure-Data-Engineering-Project/blob/main/Assets/Picture39.png)
-Part end- End to End Pipeline Testing
+
+
+the final part of this Azure Data Engineering project! In this section, we’ll test the entire data pipeline to ensure everything works seamlessly, just as it would in a real-world scenario. Let's walk through the process step by step.
+
+### 1. Overview of the Pipeline Testing Process
+- We have completed building all components of our data engineering architecture. Now, we test the pipeline end-to-end.
+- The test scenario involves adding a new row to the on-premise SQL Server database and running the Azure Data Factory (ADF) pipeline to verify that the changes are reflected through every stage until the data is visible in Power BI.
+
+### 2. Triggering the Azure Data Factory Pipeline
+- First, let's go into the ADF portal and locate the pipeline we created (named **Copy All Tables**). 
+- Remember, when we initially ran the pipeline, we used the **Debug Mode** and **Trigger Now** options. These options manually trigger the pipeline without publishing changes. For real-time projects, we need to automate this process using triggers.
+
+### 3. Creating a Trigger
+- We will configure a **Schedule Trigger** in ADF to automate the pipeline.
+- Click on **Add Trigger** → **New/Edit**. 
+- In the **Choose Trigger** dropdown, click **New**.
+  - **Name**: Set it to `scheduled_trigger`.
+  - **Description**: (Optional) You can leave this blank for simplicity.
+  - **Type**: Select **Schedule**.
+  - **Start Date**: This will default to the current date and time, which is fine for our test.
+  - **Time Zone**: Set the appropriate time zone for your region (e.g., Auckland, New Zealand, if that's your location).
+  - **Recurrence**: Configure the pipeline to run every day. Change the interval from minutes to days and set the frequency to `1` (daily).
+  - **Execution Time**: Specify the time for the pipeline to run. For instance, if the current time is `12:09 AM`, set it to `12:25 AM`.
+  - **End Date**: Leave it blank if you want the trigger to run indefinitely.
+- Click **OK** and publish the trigger.
+
+### 4. Testing the Trigger
+- Once the trigger is set, go to the SQL Server database (using SQL Server Management Studio - SSMS). 
+- Add a new record to one of the tables, such as the **Customer** table, which we used to create visuals in Power BI. 
+  - For instance, add two new customer records. 
+- The trigger will activate the pipeline at the configured time (e.g., `12:25 AM`).
+
+### 5. Monitoring the Pipeline Run
+- Go back to the **Monitor** tab in ADF to verify if the pipeline has triggered automatically.
+- Once the time hits `12:25 AM`, refresh the monitor page to see the pipeline status.
+  - The pipeline should show **In Progress** initially and eventually switch to **Succeeded** once it completes all activities.
+
+### 6. Verifying Data Update in Power BI
+- Open your Power BI report, which is linked to the Azure Synapse Analytics database.
+- We expect the new customer records added earlier to appear in the report. Initially, the **Total Customers** card might show `849`.
+- Refresh the Power BI report to pull the latest data from Synapse Analytics. The total count should update to `851`, reflecting the newly added rows.
+
+### 7. Conclusion
+- The successful update in Power BI confirms that our end-to-end data pipeline works correctly. The new data flows seamlessly from the on-premise SQL Server through Azure Data Lake, Azure Databricks transformations, Azure Synapse Analytics, and finally into Power BI.
+- This end-to-end test validates all the components and their integration, ensuring the entire architecture functions as intended.
+
+Congratulations on completing this project! This pipeline forms a solid foundation for most real-time data engineering scenarios. I hope you found this project useful and gained valuable insights into building scalable data solutions using Azure.
+
+---
 
 ![image](https://github.com/ankan-mazumdar/End-to-End-Azure-Data-Engineering-Project/blob/main/Assets/Picture40.png)
 ![image](https://github.com/ankan-mazumdar/End-to-End-Azure-Data-Engineering-Project/blob/main/Assets/Picture41.png)
@@ -411,11 +622,11 @@ Make changes in the source- add 2 new rows in the table-
 
 ![image](https://github.com/ankan-mazumdar/End-to-End-Azure-Data-Engineering-Project/blob/main/Assets/Picture42.png) 
 
-Dashboard data values before trigger execution-
+**Dashboard data values before trigger execution-**
 
 ![image](https://github.com/ankan-mazumdar/End-to-End-Azure-Data-Engineering-Project/blob/main/Assets/Picture43.png) 
 
-After execution-
+**Updated Dasboard After execution-**
 
 ![image](https://github.com/ankan-mazumdar/End-to-End-Azure-Data-Engineering-Project/blob/main/Assets/Picture44.png) 
 ![image](https://github.com/ankan-mazumdar/End-to-End-Azure-Data-Engineering-Project/blob/main/Assets/Picture45.png)

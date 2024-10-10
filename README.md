@@ -77,7 +77,8 @@ https://www.youtube.com/watch?v=twJxzJI1K3w&t=2s&pp=ygUhY29ubmVjdCBsb2NhbCBzcWwg
 
 
 
-
+Original way-
+Create your login username and passwrd for the connection and provide necessary permission through IAMadmin-
 
 ![image](https://github.com/user-attachments/assets/da1ca680-e1c0-441e-8bd9-468985617f6c)
 

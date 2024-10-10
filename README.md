@@ -258,62 +258,77 @@ https://www.youtube.com/watch?v=lecyAa6Pv8I&t=168s
 ![image](https://github.com/ankan-mazumdar/End-to-End-Azure-Data-Engineering-Project/blob/7a94f413ee44abdb4abbec8e6db3a029ad8b6470/Assets/Picture1.png)
 
 Power of delta format
-
+![image](https://github.com/ankan-mazumdar/End-to-End-Azure-Data-Engineering-Project/blob/main/Assets/Picture4.png)
 Part 8 - Data Loading (Azure Synapse Analytics)
 
 Azure synapse analytics = azure data factory(it is built on top of AZ DF) + azure data bricks + additional nalytics
 Dedicated costly datalake + compute , but serverless = only compute, as we already have data is already exist  in datlake, so servless will be most optimed
-
+![image](https://github.com/ankan-mazumdar/End-to-End-Azure-Data-Engineering-Project/blob/main/Assets/Picture5.png)
 Link tab-
- 
-
+![image](https://github.com/ankan-mazumdar/End-to-End-Azure-Data-Engineering-Project/blob/main/Assets/Picture6.png) 
+![image](https://github.com/ankan-mazumdar/End-to-End-Azure-Data-Engineering-Project/blob/main/Assets/Picture7.png)
 Connect to built-in sereverless
- 
+![image](https://github.com/ankan-mazumdar/End-to-End-Azure-Data-Engineering-Project/blob/main/Assets/Picture8.png) 
 
 Create view-
- 
+![image](https://github.com/ankan-mazumdar/End-to-End-Azure-Data-Engineering-Project/blob/main/Assets/Picture9.png) 
 iF any data modification happen in the main table, it going to be automatically reflected in the view as each time view executes the sql for the table
 Create view for all the available tables inside the gold container
- 
+ ![image](https://github.com/ankan-mazumdar/End-to-End-Azure-Data-Engineering-Project/blob/main/Assets/Picture10.png)
 Also need to create pipeline to create views for the tables to fetch tables
 Publish after execution
- 
+![image](https://github.com/ankan-mazumdar/End-to-End-Azure-Data-Engineering-Project/blob/main/Assets/Picture11.png)
+![image](https://github.com/ankan-mazumdar/End-to-End-Azure-Data-Engineering-Project/blob/main/Assets/Picture12.png)
+![image](https://github.com/ankan-mazumdar/End-to-End-Azure-Data-Engineering-Project/blob/main/Assets/Picture13.png)
+![image](https://github.com/ankan-mazumdar/End-to-End-Azure-Data-Engineering-Project/blob/main/Assets/Picture14.png)
+![image](https://github.com/ankan-mazumdar/End-to-End-Azure-Data-Engineering-Project/blob/main/Assets/Picture15.png)
+![image](https://github.com/ankan-mazumdar/End-to-End-Azure-Data-Engineering-Project/blob/main/Assets/Picture16.png)
+![image](https://github.com/ankan-mazumdar/End-to-End-Azure-Data-Engineering-Project/blob/main/Assets/Picture17.png)
 This whole list of child items will be passed as input to the for each loop by setting below item config-
-
+![image](https://github.com/ankan-mazumdar/End-to-End-Azure-Data-Engineering-Project/blob/main/Assets/Picture18.png)
+![image](https://github.com/ankan-mazumdar/End-to-End-Azure-Data-Engineering-Project/blob/main/Assets/Picture19.png)
+![image](https://github.com/ankan-mazumdar/End-to-End-Azure-Data-Engineering-Project/blob/main/Assets/Picture20.png)
  Run instance-
- 
- 
+ ![image](https://github.com/ankan-mazumdar/End-to-End-Azure-Data-Engineering-Project/blob/main/Assets/Picture21.png)
+ ![image](https://github.com/ankan-mazumdar/End-to-End-Azure-Data-Engineering-Project/blob/main/Assets/Picture22.png)
 Part next- data Reporting
 Power BI
-
+![image](https://github.com/ankan-mazumdar/End-to-End-Azure-Data-Engineering-Project/blob/main/Assets/Picture23.png)
+![image](https://github.com/ankan-mazumdar/End-to-End-Azure-Data-Engineering-Project/blob/main/Assets/Picture24.png)
+![image](https://github.com/ankan-mazumdar/End-to-End-Azure-Data-Engineering-Project/blob/main/Assets/Picture25.png)
  
 Report Tab ,Data Tab and Model Tab
- 
+ ![image](https://github.com/ankan-mazumdar/End-to-End-Azure-Data-Engineering-Project/blob/main/Assets/Picture26.png)
 
 Model Tab with tables replationship-
- 
+ ![image](https://github.com/ankan-mazumdar/End-to-End-Azure-Data-Engineering-Project/blob/main/Assets/Picture27.png)
+ ![image](https://github.com/ankan-mazumdar/End-to-End-Azure-Data-Engineering-Project/blob/main/Assets/Picture28.png)
 Use manage relation and create new relation so that any updates are in sync and reflected overall among all tables, chose the tables from drop dwon and select cardinality and cross filer direction to make reports more interactive
-
+![image](https://github.com/ankan-mazumdar/End-to-End-Azure-Data-Engineering-Project/blob/main/Assets/Picture29.png)
  
 Create dashboard-
-
+![image](https://github.com/ankan-mazumdar/End-to-End-Azure-Data-Engineering-Project/blob/main/Assets/Picture30.png)
 Final Dashboard
-
+![image](https://github.com/ankan-mazumdar/End-to-End-Azure-Data-Engineering-Project/blob/main/Assets/Picture31.png)
 Part 10 - Security and Governance (AAD)
-
+![image](https://github.com/ankan-mazumdar/End-to-End-Azure-Data-Engineering-Project/blob/main/Assets/Picture32.png)
 Initially only account of mine which is owner has access -
- 
+ ![image](https://github.com/ankan-mazumdar/End-to-End-Azure-Data-Engineering-Project/blob/main/Assets/Picture33.png)
 So in order to provide access a security group so that all employee/developers/data engineers belonging to that group get access
-
+![image](https://github.com/ankan-mazumdar/End-to-End-Azure-Data-Engineering-Project/blob/main/Assets/Picture34.png)
 If it is inaccessible, then you’re owner only, and need to contact your azure admin
-
+![image](https://github.com/ankan-mazumdar/End-to-End-Azure-Data-Engineering-Project/blob/main/Assets/Picture35.png)
+![image](https://github.com/ankan-mazumdar/End-to-End-Azure-Data-Engineering-Project/blob/main/Assets/Picture36.png)
+![image](https://github.com/ankan-mazumdar/End-to-End-Azure-Data-Engineering-Project/blob/main/Assets/Picture37.png)
+![image](https://github.com/ankan-mazumdar/End-to-End-Azure-Data-Engineering-Project/blob/main/Assets/Picture38.png)
 Part end- End to End Pipeline Testing
-
+![image](https://github.com/ankan-mazumdar/End-to-End-Azure-Data-Engineering-Project/blob/main/Assets/Picture39.png)
+![image](https://github.com/ankan-mazumdar/End-to-End-Azure-Data-Engineering-Project/blob/main/Assets/Picture40.png)
 Make changes in the source- add 2 new rows in the table-
- 
+![image](https://github.com/ankan-mazumdar/End-to-End-Azure-Data-Engineering-Project/blob/main/Assets/Picture41.png) 
 Dashboard data values before trigger execution-
- 
+![image](https://github.com/ankan-mazumdar/End-to-End-Azure-Data-Engineering-Project/blob/main/Assets/Picture42.png) 
 After execution-
- 
-
+![image](https://github.com/ankan-mazumdar/End-to-End-Azure-Data-Engineering-Project/blob/main/Assets/Picture43.png) 
+![image](https://github.com/ankan-mazumdar/End-to-End-Azure-Data-Engineering-Project/blob/main/Assets/Picture44.png)
 

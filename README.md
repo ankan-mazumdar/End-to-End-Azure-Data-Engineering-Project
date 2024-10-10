@@ -702,49 +702,6 @@ Final Dashboard
 
 ---
 
-### Part 10 - Security and Governance (AAD)
-
-In this section, we cover the implementation of security and governance features using Azure Active Directory (AAD). This is a crucial step in setting up access management for the project, ensuring that resources are securely managed and controlled.
-
-#### 1. **Overview of Security and Governance**
-   - We previously gone through the use of Azure Key Vault for storing secrets and configuring Azure Data Factory to access these secrets securely.
-   - In this section, we will explore how to set up Azure Active Directory (AAD) security groups to manage user permissions efficiently.
-
-#### 2. **Setting Up a Security Group in Azure Active Directory**
-   - Access the Azure portal and navigate to **Azure Active Directory**.
-   - Go to the **Groups** section to create a new security group that will manage the permissions for the resources used in this project.
-
-#### 3. **Creating a Security Group**
-   - Click on the **New Group** button.
-   - Choose **Security** as the group type.
-   - Enter a suitable name for the group, such as `Data Engineering Team`.
-   - Skip the optional description and proceed to the owner assignment.
-
-#### 4. **Assigning Owners to the Group**
-   - Add an owner to the security group. This owner will have management rights to add or remove users and manage the group’s settings.
-   - For example, the project lead or a senior data engineer can be assigned as the group owner.
-
-#### 5. **Adding Members to the Group**
-   - Add all relevant team members who need access to the resources under this resource group. By managing team members through this security group, we simplify permission management.
-   - When a new team member joins, they can simply be added to the security group, automatically inheriting all the necessary permissions.
-
-#### 6. **Assigning Permissions to the Security Group**
-   - Navigate to the target **Resource Group** (e.g., `RG_Data_Engineering_Project`).
-   - Go to **Access Control (IAM)** and click **Add** -> **Add Role Assignment**.
-   - Choose the appropriate role, such as **Contributor**, and assign it to the security group created (`Data Engineering Team`).
-
-#### 7. **Testing the Security Group Configuration**
-   - Verify that members of the security group can access and manage the resources in the Resource Group.
-   - For example, logging in as a member of the security group should show access to the Resource Group and its associated resources.
-
-#### 8. **Best Practices for Security Management**
-   - Always manage access through security groups rather than individual accounts to maintain efficient and scalable user management.
-   - Regularly review and update security groups to ensure that permissions align with the current project requirements.
-
-By implementing security and governance using Azure Active Directory, we ensure that access management for the project is both secure and efficient, allowing for easy scalability and control.
-
---- 
-
 
 
 
@@ -766,8 +723,9 @@ Initially only account of mine which is owner has access -
 
 ![image](https://github.com/ankan-mazumdar/End-to-End-Azure-Data-Engineering-Project/blob/main/Assets/Picture39.png)
 
+### Last Part - End to End Testing 
 
-the final part of this Azure Data Engineering project! In this section, we’ll test the entire data pipeline to ensure everything works seamlessly, just as it would in a real-world scenario. Let's walk through the process step by step.
+The final part of this Azure Data Engineering project! In this section, we’ll test the entire data pipeline to ensure everything works seamlessly, just as it would in a real-world scenario. Let's walk through the process step by step.
 
 ### 1. Overview of the Pipeline Testing Process
 - We have completed building all components of our data engineering architecture. Now, we test the pipeline end-to-end.
@@ -830,3 +788,46 @@ Make changes in the source- add 2 new rows in the table-
 ![image](https://github.com/ankan-mazumdar/End-to-End-Azure-Data-Engineering-Project/blob/main/Assets/Picture44.png) 
 ![image](https://github.com/ankan-mazumdar/End-to-End-Azure-Data-Engineering-Project/blob/main/Assets/Picture45.png)
 
+
+### Extra - Security and Governance (AAD)
+
+In this section, we cover the implementation of security and governance features using Azure Active Directory (AAD). This is a crucial step in setting up access management for the project, ensuring that resources are securely managed and controlled.
+
+#### 1. **Overview of Security and Governance**
+   - We previously gone through the use of Azure Key Vault for storing secrets and configuring Azure Data Factory to access these secrets securely.
+   - In this section, we will explore how to set up Azure Active Directory (AAD) security groups to manage user permissions efficiently.
+
+#### 2. **Setting Up a Security Group in Azure Active Directory**
+   - Access the Azure portal and navigate to **Azure Active Directory**.
+   - Go to the **Groups** section to create a new security group that will manage the permissions for the resources used in this project.
+
+#### 3. **Creating a Security Group**
+   - Click on the **New Group** button.
+   - Choose **Security** as the group type.
+   - Enter a suitable name for the group, such as `Data Engineering Team`.
+   - Skip the optional description and proceed to the owner assignment.
+
+#### 4. **Assigning Owners to the Group**
+   - Add an owner to the security group. This owner will have management rights to add or remove users and manage the group’s settings.
+   - For example, the project lead or a senior data engineer can be assigned as the group owner.
+
+#### 5. **Adding Members to the Group**
+   - Add all relevant team members who need access to the resources under this resource group. By managing team members through this security group, we simplify permission management.
+   - When a new team member joins, they can simply be added to the security group, automatically inheriting all the necessary permissions.
+
+#### 6. **Assigning Permissions to the Security Group**
+   - Navigate to the target **Resource Group** (e.g., `RG_Data_Engineering_Project`).
+   - Go to **Access Control (IAM)** and click **Add** -> **Add Role Assignment**.
+   - Choose the appropriate role, such as **Contributor**, and assign it to the security group created (`Data Engineering Team`).
+
+#### 7. **Testing the Security Group Configuration**
+   - Verify that members of the security group can access and manage the resources in the Resource Group.
+   - For example, logging in as a member of the security group should show access to the Resource Group and its associated resources.
+
+#### 8. **Best Practices for Security Management**
+   - Always manage access through security groups rather than individual accounts to maintain efficient and scalable user management.
+   - Regularly review and update security groups to ensure that permissions align with the current project requirements.
+
+By implementing security and governance using Azure Active Directory, we ensure that access management for the project is both secure and efficient, allowing for easy scalability and control.
+
+--- 

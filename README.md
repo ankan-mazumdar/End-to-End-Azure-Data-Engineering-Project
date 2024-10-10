@@ -32,9 +32,9 @@ In this section, we set up the Azure environment, configuring essential resource
 ![image](https://github.com/user-attachments/assets/3bfb886b-d6df-4f3b-b452-3193eec814d9)
 ![image](https://github.com/user-attachments/assets/92d22e54-d8b9-4ac4-aada-600fcdaef378)
 
-ankantestsqlserver
-SQlserve creds-
-Alternate way to copy local SQL server data to Azure-
+
+
+Alternate way to copy local SQL server data to Azure, here is the youtube link-
 https://www.youtube.com/watch?v=twJxzJI1K3w&t=2s&pp=ygUhY29ubmVjdCBsb2NhbCBzcWwgc2VydmVyIHRvIGF6dXJl
 
 1. **Azure Portal Access**

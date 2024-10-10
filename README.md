@@ -1,16 +1,33 @@
-Project Overview –
+
+# **End-to-End Azure Data Engineering Project**
+
+Welcome! This readme walks you through the complete setup and implementation of an Azure Data Engineering pipeline. We'll cover everything from environment setup, data ingestion, transformation, and reporting, to testing the pipeline. Each part includes detailed steps, tools used, and images for clarity.
+
+## **Project Overview**
+
+This project demonstrates how to build an end-to-end data engineering solution using various Azure resources, including Azure Data Factory, Azure SQL Database, Azure Databricks, Azure Data Lake, Azure Synapse Analytics, Power BI, and more. The goal is to migrate, transform, and visualize data efficiently.
+
  ![image](https://github.com/user-attachments/assets/f2599900-45c3-4b89-9c57-5f1b17c39a8a)
+ 
+### **Agenda**
 
-Agenda-
-Part I: Environment setup 
-Part 2: Data Ingestion 
-Part 3: Data Transformation 
-Part 4: Data Loading 
-Part 5: Data Reporting  
-Part 6: End to End Pipeline Testing
+- **Part I**: Environment Setup
+- **Part II**: Data Ingestion
+- **Part III**: Data Transformation
+- **Part IV**: Data Loading
+- **Part V**: Data Reporting
+- **Part VI**: Data Security and Access Management
+- **Part VII**: Data Governance and Compliance
+- **Part VIII**: Automating the Pipeline
+- **Part IX**: Optimizing Performance
+- **Part X**: Building Analytical Models
+- **Part XI**: End-to-End Testing
 
-Part I: Environment setup 
-Azure Portal
+---
+
+## **Part I: Environment Setup**
+
+In this section, we set up the Azure environment, configuring essential resources like Azure Data Factory, Azure SQL Database, and Azure Data Lake Storage. 
  
 ![image](https://github.com/user-attachments/assets/3bfb886b-d6df-4f3b-b452-3193eec814d9)
 ![image](https://github.com/user-attachments/assets/92d22e54-d8b9-4ac4-aada-600fcdaef378)
@@ -19,6 +36,30 @@ ankantestsqlserver
 SQlserve creds-
 Alternate way to copy local SQL server data to Azure-
 https://www.youtube.com/watch?v=twJxzJI1K3w&t=2s&pp=ygUhY29ubmVjdCBsb2NhbCBzcWwgc2VydmVyIHRvIGF6dXJl
+
+1. **Azure Portal Access**
+   - Log in to the [Azure Portal](https://portal.azure.com) with your credentials. Ensure you have permissions to create and manage resources.
+   - If you don't have an account, you can [sign up here](https://azure.microsoft.com/free/).
+
+2. **Creating the Azure SQL Database**
+   - Navigate to **SQL Databases** in the portal.
+   - Click **Create**, fill in details like **Database name**, and choose a **Server** (create one if needed).
+   - Securely note down your SQL Server credentials for later.
+
+3. **Configuring Azure Data Factory**
+   - Search for **Data Factory** and create an instance.
+   - Set up a pipeline connecting your on-premise SQL database using the [self-hosted integration runtime](https://www.youtube.com/watch?v=twJxzJI1K3w&t=2s).
+
+4. **Setting Up Azure Data Lake Storage Gen 2**
+   - Go to **Storage accounts** and create a new account with **hierarchical namespace** enabled.
+   - This storage will hold our data in **bronze**, **silver**, and **gold** layers.
+
+5. **Testing Connectivity**
+   - Test connectivity between your SQL Database and Data Lake through Azure Data Factory before moving forward.
+
+---
+
+
  
 ![image](https://github.com/user-attachments/assets/7a49ef08-5c5e-4ca3-adfd-fede144109e4)
 

@@ -16,12 +16,11 @@ This project demonstrates how to build an end-to-end data engineering solution u
 - **Part III**: Data Transformation
 - **Part IV**: Data Loading
 - **Part V**: Data Reporting
-- **Part VI**: Data Security and Access Management
-- **Part VII**: Data Governance and Compliance
+- **Part VI**: Automating the Pipeline
+- **Part VII**: Data Security and Access Management
 - **Part VIII**: Automating the Pipeline
-- **Part IX**: Optimizing Performance
-- **Part X**: Building Analytical Models
-- **Part XI**: End-to-End Testing
+- **Part IX**: Building Analytical Models
+- **Part X**: End-to-End Testing
 
 ---
 
